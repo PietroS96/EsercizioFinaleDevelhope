@@ -1,0 +1,39 @@
+<div class="mx-5 mt-5">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Attività</th>
+        <th scope="col">Difficoltà</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Partecipanti</th>
+        <th scope="col">Prezzo</th>
+        <th scope="col">Link</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="dataActivity === undefined">
+        <th scope="row"></th>
+        <th scope="row"></th>
+        <th class="text-center">Nessun'Attività Preferita</th>
+        <th scope="row"></th>
+        <th scope="row"></th>
+      </tr>
+      <tr
+        *ngFor="let favorite of dataActivity"
+        [ngClass]="borderColor(favorite)"
+      >
+        <th scope="row">{{ favorite.activity }}</th>
+        <th scope="row">{{ favorite.accessibility }}</th>
+        <th scope="row">{{ favorite.type }}</th>
+        <th scope="row">{{ favorite.participants }}</th>
+        <th scope="row">{{ favorite.price }}</th>
+        <th scope="row">{{ favorite.link }}</th>
+        <th scope="row">
+          <button class="btn btn-danger" (click)="deleteSelected(favorite)">
+            Elimina
+          </button>
+        </th>
+      </tr>
+    </tbody>
+  </table>
+</div>

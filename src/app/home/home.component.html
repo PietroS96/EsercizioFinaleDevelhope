@@ -1,0 +1,7 @@
+<app-navbar></app-navbar>
+<div class="d-flex justify-content-around mx-5">
+  <app-generate-activity
+    (dataSend)="sendToChild($event)"
+  ></app-generate-activity>
+  <app-favorite-activity [dataActivity]="datActivity"></app-favorite-activity>
+</div>
